@@ -1,14 +1,18 @@
 package aplicacao;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.PecaDeXadrez;
+import xadrez.PosicaoXadrez;
 
 public class UI {
 
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
 
-	//cores do texto
-	
+	// cores do texto
+
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -19,8 +23,8 @@ public class UI {
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
 
-	//cores do fundo 
-	
+	// cores do fundo
+
 	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
 	public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -29,6 +33,17 @@ public class UI {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+
+	public static PosicaoXadrez lerPosicaoDeXadrez(Scanner sc) {
+		try {
+			String s = sc.nextLine();
+			char columsColuna = s.charAt(0);
+			int rowFileira = Integer.parseInt(s.substring(1));
+			return new PosicaoXadrez(columsColuna, rowFileira);
+		} catch (RuntimeException e) {
+			throw new InputMismatchException("Erro lendo posicao de xadrez.Valores validos sao de a1 ate h8.");
+		}
+	}
 
 	public static void printTabuleiro(PecaDeXadrez[][] pecas) {
 		for (int i = 0; i < pecas.length; i++) {
@@ -42,17 +57,15 @@ public class UI {
 	}
 
 	private static void printPecas(PecaDeXadrez peca) {
-    	if (peca == null) {
-            System.out.print("-");
-        }
-        else {
-            if (peca.getCor() == Cor.BRANCO) {
-                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
-            }
-            else {
-                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
-            }
-        }
-        System.out.print(" ");
+		if (peca == null) {
+			System.out.print("-");
+		} else {
+			if (peca.getCor() == Cor.BRANCO) {
+				System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+			} else {
+				System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+			}
+		}
+		System.out.print(" ");
 	}
 }
