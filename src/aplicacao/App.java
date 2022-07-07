@@ -4,13 +4,14 @@ import java.awt.Point;
 
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.PartidaDeXadrez;
 
 public class App {
 
 	public static void main(String[] args) {
 		
-		Tabuleiro tabuleiro = new Tabuleiro(8, 8);
-		System.out.println(tabuleiro);
+		PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
+		UI.printTabuleiro(partidaDeXadrez.getpecas());
 
 	}
 
