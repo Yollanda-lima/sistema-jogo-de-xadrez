@@ -40,5 +40,19 @@ public class Tabuleiro {
 		pecas[posicao.getRowFileira()][posicao.getColumnColuna()] = peca;
 		peca.posicao = posicao;
 	}
+	
+	private boolean posiçãoExiste(int linha, int coluna) {
+		return linha >= 0 && linha < rowsLinhas && coluna >= 0 && coluna < columnColuna; 
+	}
+	
+	public boolean posiçãoExiste(Posicao posicao) {
+		return posiçãoExiste(posicao.getRowFileira(), posicao.getColumnColuna());
+	}
+	
+	public boolean haPeca(Posicao posicao) {
+		return peca(posicao) != null;
+	}
+	
+	
 
 }
