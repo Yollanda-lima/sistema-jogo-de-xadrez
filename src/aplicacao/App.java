@@ -1,12 +1,9 @@
 package aplicacao;
 
-import java.awt.Point;
+import java.awt.Font;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import tabuleiro.Peca;
-import tabuleiro.Posicao;
-import tabuleiro.Tabuleiro;
 import xadrez.ExcecaoXadrez;
 import xadrez.PartidaDeXadrez;
 import xadrez.PecaDeXadrez;
@@ -27,6 +24,9 @@ public class App {
 				System.out.println("Origem: ");
 				PosicaoXadrez origem = UI.lerPosicaoDeXadrez(sc);
 				
+				boolean [][] movimentosPossiveis = partidaDeXadrez.movimentosPossiveis(origem);
+				UI.clearScreen();
+				UI.printTabuleiro(partidaDeXadrez.getpecas(), movimentosPossiveis);
 				System.out.println();
 				System.out.println("Destino: ");
 				PosicaoXadrez destino = UI.lerPosicaoDeXadrez(sc);
