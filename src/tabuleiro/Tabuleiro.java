@@ -24,14 +24,14 @@ public class Tabuleiro {
 	}
 
 	public Peca peca(int rowsLinhas, int columnColuna) {
-		if(!posiçãoExiste(rowsLinhas,columnColuna)) {
+		if(!posicaoExiste(rowsLinhas,columnColuna)) {
 			throw new ExcecaoTabuleiro("Nao existe posicao no tabuleiro");
 		}
 		return pecas[rowsLinhas][columnColuna];
 	}
 
 	public Peca peca(Posicao posicao) {
-		if(!posiçãoExiste(posicao)) {
+		if(!posicaoExiste(posicao)) {
 			throw new ExcecaoTabuleiro("Nao existe posicao no tabuleiro");
 		}
 		return pecas[posicao.getRowFileira()][posicao.getColumnColuna()];
@@ -46,7 +46,7 @@ public class Tabuleiro {
 	}
 	
 	public Peca removerPeca(Posicao posicao) {
-		if (!posiçãoExiste(posicao)) {
+		if (!posicaoExiste(posicao)) { 
 			throw new ExcecaoTabuleiro("Nao existe posicao no tabuleiro");
 		}
 		if (peca(posicao) == null) {
@@ -58,16 +58,20 @@ public class Tabuleiro {
 		return aux;
 	}
 	
-	private boolean posiçãoExiste(int linha, int coluna) {
+	private boolean posi(Posicao posicao) {
+		return false;
+	}
+
+	private boolean posicaoExiste(int linha, int coluna) {
 		return linha >= 0 && linha < rowsFileiras && coluna >= 0 && coluna < columnColuna; 
 	}
 	
-	public boolean posiçãoExiste(Posicao posicao) {
-		return posiçãoExiste(posicao.getRowFileira(), posicao.getColumnColuna());
+	public boolean posicaoExiste(Posicao posicao) {
+		return posicaoExiste(posicao.getRowFileira(), posicao.getColumnColuna());
 	}
 	
 	public boolean haPeca(Posicao posicao) {
-		if(!posiçãoExiste(posicao)) {
+		if(!posicaoExiste(posicao)) {
 			throw new ExcecaoTabuleiro("Nao existe posicao no tabuleiro");
 		}
 		return peca(posicao) != null;

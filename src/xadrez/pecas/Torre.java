@@ -24,44 +24,44 @@ public class Torre extends PecaDeXadrez {
 
 		// cima
 		p.setValores(posicao.getRowFileira() - 1, posicao.getColumnColuna());
-		while (getTabuleiro().posiçãoExiste(p) && !getTabuleiro().haPeca(p)) {
+		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 			p.setRowFileira(p.getRowFileira() - 1);
 		}
-		if (getTabuleiro().posiçãoExiste(p) && existePecaAdversaria(p)) {
+		if (getTabuleiro().posicaoExiste(p) && existePecaAdversaria(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 
 		}
 
 		// esquerda
 		p.setValores(posicao.getRowFileira(), posicao.getColumnColuna() - 1);
-		while (getTabuleiro().posiçãoExiste(p) && !getTabuleiro().haPeca(p)) {
+		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 			p.setColumnColuna(p.getColumnColuna() - 1);
 		}
-		if (getTabuleiro().posiçãoExiste(p) && existePecaAdversaria(p)) {
+		if (getTabuleiro().posicaoExiste(p) && existePecaAdversaria(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 
 		}
 
 		// direita
 		p.setValores(posicao.getRowFileira(), posicao.getColumnColuna() + 1);
-		while (getTabuleiro().posiçãoExiste(p) && !getTabuleiro().haPeca(p)) {
+		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 			p.setColumnColuna(p.getColumnColuna() + 1);
 		}
-		if (getTabuleiro().posiçãoExiste(p) && existePecaAdversaria(p)) {
+		if (getTabuleiro().posicaoExiste(p) && existePecaAdversaria(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 
 		}
 
 		// baixo
 		p.setValores(posicao.getRowFileira() + 1, posicao.getColumnColuna());
-		while (getTabuleiro().posiçãoExiste(p) && !getTabuleiro().haPeca(p)) {
+		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 			p.setRowFileira(p.getRowFileira() + 1);
 		}
-		if (getTabuleiro().posiçãoExiste(p) && existePecaAdversaria(p)) {
+		if (getTabuleiro().posicaoExiste(p) && existePecaAdversaria(p)) {
 			matriz[p.getRowFileira()][p.getColumnColuna()] = true;
 
 		}
